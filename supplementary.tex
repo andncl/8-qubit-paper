@@ -1,0 +1,47 @@
+\documentclass[superscriptaddress,10pt,prl,floatfix,nofootinbib,aps]{revtex4-2} 
+
+\newif\ifsupp
+\supptrue   % set \suppfalse for submission (main only)
+
+\usepackage[labeled]{multibib}
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\externaldocument{main}
+
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}  % needed for \tfrac, \bmatrix, etc.
+\usepackage{amsfonts} % needed for bold Greek, Fraktur, and blackboard bold
+\usepackage{amssymb}
+\usepackage{graphicx} % needed for figures
+\usepackage{float}  % Add in your preamble
+\usepackage[table]{xcolor}
+% \usepackage{xcolor}
+\usepackage{placeins}
+\usepackage{newfloat}
+
+\usepackage{lineno}
+\usepackage{caption}
+
+\DeclareFloatingEnvironment[name={\textbf{Supplementary Figure}}]{suppfigure}
+
+\newcommand{\aref}[1]{\hyperref[#1]{Appendix~\ref*{#1}}}
+\DeclareCaptionLabelSeparator{line}{\hspace{2pt}\bf{|}\hspace{2pt}}
+
+\DeclareFloatingEnvironment[name={\textbf{Supplementary Table}}]{supptable}
+\renewcommand{\thesupptable}{S\arabic{supptable}}
+
+\begin{document}
+
+\input{supplementary_body}
+
+\FloatBarrier
+\bibliography{8Qbib}
+
+\end{document}
